@@ -18,8 +18,6 @@
 H5Renderer/obj/*
 H5Renderer/bin/*
 
-# Include specific parameter.h
-include/parameter.h
 
 # Test and temporary data
 **/testing/
