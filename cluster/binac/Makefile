@@ -30,7 +30,7 @@ LFLAGS         += -lm -L$(CUDADIR)/lib64 -lcudart -lpthread -lconfig -L${HOME}/l
 GPU_ARCH       := -arch=sm_37#sm_52
 CUDALFLAGS     := -dlink
 CUDALINKOBJ    := cuLink.o #needed?
-LIB            := 
+LIB            :=
 INC            := -I$(INCDIR) -I${HOME}/local/include -I$(CUDADIR)/include  -I${MPI_INC_DIR} -I${HFD5_INC_DIR} -I${boost_INC_DIR}
 INCDEP         := -I$(INCDIR)
 

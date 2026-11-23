@@ -6,25 +6,41 @@ std::ostream& Color::operator<<(std::ostream& os, const Color::Modifier& mod) {
     return os << "\033[" << mod.code << "m";
 }
 
-Logger::Logger(typeLog type, bool toLog) {
+Logger::Logger(typeLog type, bool toLog)
+    : Logger(type, toLog, true) {}
+
+
+Logger::Logger(typeLog type, bool toLog, bool useColor) {
+    this->useColor = useColor;
+
     if (LOGCFG.omitTime && type == typeLog::TIME) {
         omit = true;
     }
+
     this->toLog = toLog;
     msgLevel = type;
+
     if (LOGCFG.write2LogFile && (this->toLog || (msgLevel == typeLog::WARN || msgLevel == typeLog::ERROR))) {
         logFile.open(LOGCFG.logFileName.c_str(), std::ios::out | std::ios::app);
-
+        openedLogFile = true;
     }
+
     Color::Modifier def(Color::FG_DEFAULT);
-    if(LOGCFG.headers) {
+
+    if (LOGCFG.headers) {
         if (!omit) {
-            std::cout << getColor(type);
+            if (useColor) {
+                std::cout << getColor(type);
+            }
             operator<<(getLabel(type));
-            std::cout << def;
+            if (useColor) {
+                std::cout << def;
+            }
+            opened = true;
         }
     }
 }
+
 
 Logger::~Logger() {
     if (opened && !omit) {

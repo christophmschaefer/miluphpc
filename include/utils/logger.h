@@ -89,7 +89,9 @@ public:
      * @param type logging type
      * @param toLog
      */
-    Logger(typeLog type, bool toLog=false);
+    Logger(typeLog type, bool toLog=true);
+    Logger(typeLog type, bool toLog, bool useColor);
+
     ~Logger();
 
     /**
@@ -149,6 +151,7 @@ private:
     bool openedLogFile = false;
     bool toLog = false;
     bool omit = false;
+    bool useColor = true;
 };
 
 #endif //NBODY_LOGGER_H

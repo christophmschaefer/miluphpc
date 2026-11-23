@@ -395,7 +395,8 @@ if __name__ == '__main__':
             csv_writer.writerow(energy_analytical)
 
     fig.tight_layout()
-    fig.savefig("{}{}.png".format(args.output, os.path.basename(filename)))
+    print("{}{}.png".format(args.output, os.path.splitext(os.path.basename(filename))[0]))
+    fig.savefig("{}{}.png".format(args.output, os.path.splitext(os.path.basename(filename))[0]))
 
     if ".h5" in filename and ".csv" not in filename:
         h5f.close()

@@ -5,7 +5,8 @@ ConfigParser::ConfigParser() {
 }
 ConfigParser::ConfigParser(const std::string &file){
     // Extract the file extension from the filename
-    std::string ext = boost::filesystem::extension(file);
+    // std::string ext = boost::filesystem::extension(file);
+    std::string ext = ".info";
     if (ext == ".json") {
         // parse json and write into 'tree'
         boost::property_tree::read_json(file, tree);

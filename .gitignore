@@ -1,44 +1,80 @@
-**/images/
+# Virtual environments
+.venv/
+
+# IDE files
 **/.idea/
+**/.DS_Store
+
+# Build and output directories
 **/build/
 **/bin/
 **/dep/
 **/obj/
 **/output/
-**/testing/
-**/movies/
 **/log/
-
 H5Renderer/obj/*
 H5Renderer/bin/*
 
-testcases/*.h5
 
-**/.idea/
+# Test and temporary data
+**/testing/
+**/images/
+testcases/**/*.h5
+testcases/**/*.png
 
-**/log/
+# Ignore binaries and temporary executables
+attraction_*
 
-docs/*
-doc/html/*
-doc/latex/*
-
-kepler/*
+# Simulation and dataset files
+kepler/
 plummer/*.h5
 plummer/pl_N*/*
 sedov/*.h5
 sedov/sedov_N*/*
 bb/*.h5
 bb/bb_N*/*
-
-
 *.h5
-!examples/*.h5
-*.numbers
-*.mp4
-*.csv
-!documents/*.csv
-# ignore MPI-debug lldb pipe
-*.lldb
+!examples/*.h5   # Keep .h5 files in examples/
 
+# Documentation
+docs/*
+doc/html/*
+doc/latex/*
+*.numbers
+*.csv
+!documents/*.csv  # Keep .csv files in documents/
+
+# Media
+**/movies/
+*.mp4
+
+# Debugging
+*.lldb  # MPI-debugging lldb pipe
+
+# Compiler outputs
 *.d
 *.o
+
+# Ignore shell scripts
+scripts/
+**/*.sh
+**/*.zsh
+**/*.pbs
+
+# ... except those inside the cluster
+!cluster/**/*.sh
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore core dumps
+core.*
+
+# Archivverzeichnisse (falls noch nicht drin)
+archiv*/
+**/archiv*/
+
+
+

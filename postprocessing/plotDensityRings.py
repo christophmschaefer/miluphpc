@@ -75,6 +75,6 @@ for h5file in sorted(glob.glob(os.path.join(args.data, "*.h5")), key=os.path.bas
 
     fig.colorbar(p, label="$\\rho$")
 
-    plt.savefig("{0:}/Position_and_Density_at_Timestep{1:06d}.png".format(args.output, i))
+    plt.savefig("{0:}/Position_and_Density_at_ts{1:06d}.png".format(args.output, i))
     plt.close()
     i = i + 1
